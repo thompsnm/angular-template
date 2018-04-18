@@ -24,10 +24,6 @@ To run the unit tests and generate code coverage reports, execute the following 
 
     $ npm run test:coverage
 
-To run the unit tests using Headless Chrome as the browser, execute the following command. This will be used by Jenkins to execute tests in an environment without a monitor. This requires Chrome is installed on your machine:
-
-    $ npm run test:headless
-
 To run the unit tests inside a [Docker](https://www.docker.com/community-edition) container, execute the following command. This requires that Docker is running on your machine. All other dependencies are provided for you, thereby ensuring your local test environment exactly matches Jenkin's test environment:
 
     $ npm run test:docker

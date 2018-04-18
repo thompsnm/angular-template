@@ -7,9 +7,8 @@
     "start": "ng serve",
     "build": "ng build --prod",
     "test": "ng test",
-    "test:coverage": "ng test --code-coverage true --single-run true",
-    "test:docker": "docker pull thompsnm/nodejs-chrome:carbon && docker run --rm -v ${PWD}:/tmp/ -w /tmp thompsnm/nodejs-chrome:carbon npm run test:headless",
-    "test:headless": "npm test -- --single-run true --browsers ChromeNoSandbox",
+    "test:coverage": "ng test --code-coverage true --single-run true --browsers ChromeNoSandbox",
+    "test:docker": "docker pull thompsnm/nodejs-chrome:carbon && docker run --rm -v ${PWD}:/tmp/ -w /tmp thompsnm/nodejs-chrome:carbon npm run test:coverage",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
