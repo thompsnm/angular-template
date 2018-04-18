@@ -16,7 +16,21 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+To run the unit tests via [Karma](https://karma-runner.github.io) directly your machine, execute the following command. This requires that Chrome is installed on your machine:
+
+    $ npm test
+
+To run the unit tests and generate code coverage reports, execute the following command. Reports will be output in the `coverage` directory as HTML, lcov, and cobertura formats. Cobertura is the format consumed by Jenkins for code coverage reporting. This requires that Chrome is installed on your machine:
+
+    $ npm run test:coverage
+
+To run the unit tests using Headless Chrome as the browser, execute the following command. This will be used by Jenkins to execute tests in an environment without a monitor. This requires Chrome is installed on your machine:
+
+    $ npm run test:headless
+
+To run the unit tests inside a [Docker](https://www.docker.com/community-edition) container, execute the following command. This requires that Docker is running on your machine. All other dependencies are provided for you, thereby ensuring your local test environment exactly matches Jenkin's test environment:
+
+    $ npm run test:docker
 
 ## Running end-to-end tests
 

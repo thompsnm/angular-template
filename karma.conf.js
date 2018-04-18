@@ -17,7 +17,7 @@ module.exports = function (config) {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     coverageIstanbulReporter: {
-      reports: [ 'html', 'lcovonly' ],
+      reports: [ 'html', 'cobertura', 'lcovonly' ],
       fixWebpackSourcePaths: true
     },
     angularCli: {
@@ -30,6 +30,22 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
+    customLaunchers: {
+      ChromeNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: [
+          // Required when running as root in Docker container:
+          // https://github.com/karma-runner/karma-chrome-launcher/issues/158
+          '--no-sandbox',
+          // Testing showed increased memory was necessary to prevent Chrome disconnects in Docker:
+          // https://github.com/karma-runner/karma-chrome-launcher/issues/137#issuecomment-324174286
+          '--max_old_space_size=4096',
+          // Testing showed this was also required, though it may become a no-op:
+          // https://groups.google.com/a/chromium.org/forum/#!topic/chromium-discuss/kfhzPq_Al94
+          '--disable-setuid-sandbox'
+        ]
+      }
+    },
     singleRun: false
   });
 };
