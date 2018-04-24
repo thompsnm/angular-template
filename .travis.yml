@@ -14,3 +14,6 @@ before_script:
 
 script:
   - npm run build
+
+after_script:
+  - npm run e2e:docker

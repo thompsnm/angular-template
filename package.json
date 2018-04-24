@@ -10,7 +10,8 @@
     "test:coverage": "ng test --code-coverage true --single-run true --browsers ChromeNoSandbox",
     "test:docker": "docker pull thompsnm/nodejs-chrome:carbon && docker run --rm -v ${PWD}:/tmp/ -w /tmp thompsnm/nodejs-chrome:carbon npm run test:coverage",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "e2e:docker": "docker pull thompsnm/nodejs-chrome-xvfb-docker:carbon && docker run --rm -v ${PWD}:/tmp/ -w /tmp thompsnm/nodejs-chrome-xvfb-docker:carbon npm run e2e"
   },
   "private": true,
   "dependencies": {
