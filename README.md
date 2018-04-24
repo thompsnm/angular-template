@@ -36,7 +36,7 @@ To run the end-to-end tests via [Protractor](http://www.protractortest.org/) dir
 
 To run the end-to-end tests inside a [Docker](https://www.docker.com/community-edition) container, execute the following command. This requires that Docker is running on your machine. All other dependencies are provided for you, thereby ensuring your local test environment exactly matches Jenkins' test environment:
 
-    $ npm run test:docker
+    $ npm run e2e:docker
 
 ## Further help
 
