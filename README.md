@@ -24,13 +24,19 @@ To run the unit tests and generate code coverage reports, execute the following 
 
     $ npm run test:coverage
 
-To run the unit tests inside a [Docker](https://www.docker.com/community-edition) container, execute the following command. This requires that Docker is running on your machine. All other dependencies are provided for you, thereby ensuring your local test environment exactly matches Jenkin's test environment:
+To run the unit tests inside a [Docker](https://www.docker.com/community-edition) container, execute the following command. This requires that Docker is running on your machine. All other dependencies are provided for you, thereby ensuring your local test environment exactly matches Jenkins' test environment:
 
     $ npm run test:docker
 
 ## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+To run the end-to-end tests via [Protractor](http://www.protractortest.org/) directly your machine, execute the following command. This requires that Chrome is installed on your machine:
+
+    $ npm run e2e
+
+To run the end-to-end tests inside a [Docker](https://www.docker.com/community-edition) container, execute the following command. This requires that Docker is running on your machine. All other dependencies are provided for you, thereby ensuring your local test environment exactly matches Jenkins' test environment:
+
+    $ npm run test:docker
 
 ## Further help
 
