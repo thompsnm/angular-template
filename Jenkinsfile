@@ -1,10 +1,10 @@
 node() {
 
-  stage('Prepare Environment') {
-    checkout scm
-    def buildImage = docker.image('thompsnm/nodejs-chrome-xvfb:carbon')
-    buildImage.pull()
-  }
+  checkout scm
+  def buildImage = docker.image('thompsnm/nodejs-chrome:carbon')
+  def testImage = docker.image('thompsnm/nodejs-chrome-xvfb:carbon')
+  buildImage.pull()
+  testImage.pull()
 
   buildImage.inside('-v /etc/passwd:/etc/passwd') {
 
@@ -29,13 +29,12 @@ node() {
         sh 'npm run build'
       }
 
-      stage('E2E Test') {
-        sh 'npm run e2e'
-      }
-
     }
 
   }
 
-}
+  stage('E2E Test') {
+    sh "docker run --rm -v ${WORKSPACE}:/protractor/project ${TEST_IMAGE_ID} npm run e2e"
+  }
 
+}
