@@ -1,5 +1,9 @@
 node() {
 
+  stage('Install Dependencies') {
+    sh 'npm install'
+  }
+
   stage('Lint') {
     sh 'npm run lint'
   }
