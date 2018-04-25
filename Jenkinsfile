@@ -9,11 +9,11 @@ node() {
   }
 
   stage('Build') {
-    sh npm run build'
+    sh 'npm run build'
   }
 
   stage('E2E Test') {
-    sh npm run e2e:docker'
+    sh 'npm run e2e:docker'
   }
 
 }
