@@ -9,7 +9,7 @@ node() {
   buildImage.inside('-v /etc/passwd:/etc/passwd') {
 
     withEnv([
-      /* Override the npm cache directory to avoid: EACCES: permission denied, mkdir '/.npm' */
+      // Override the npm cache directory to avoid: EACCES: permission denied, mkdir '/.npm'
       'npm_config_cache=npm-cache'
     ]) {
 
@@ -34,7 +34,8 @@ node() {
   }
 
   stage('E2E Test') {
-    sh "docker run --rm -v ${WORKSPACE}:/protractor/project ${TEST_IMAGE_ID} npm run e2e"
+    // Not reusing the existing "npm run e2e:docker" script because ${PWD} and ${WORKSPACE} do not map to the same location in Jenkins
+    sh "docker run --rm -v ${WORKSPACE}:/tmp -w /tmp ${testImage.id} npm run e2e"
   }
 
 }
