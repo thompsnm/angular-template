@@ -5,13 +5,15 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:docker": "docker build -t angular-template-tmp-docker . && docker run -it --rm -v ${PWD}:/usr/src/app -p 4200:4200 angular-template-tmp-docker",
     "build": "ng build --prod",
     "test": "ng test",
     "test:coverage": "ng test --code-coverage true --single-run true --browsers ChromeNoSandbox",
     "test:docker": "docker pull thompsnm/nodejs-chrome:carbon && docker run --rm -v ${PWD}:/tmp/ -w /tmp thompsnm/nodejs-chrome:carbon npm run test:coverage",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "e2e:docker": "docker pull thompsnm/nodejs-chrome-xvfb:carbon && docker run --rm -v ${PWD}:/tmp/ -w /tmp thompsnm/nodejs-chrome-xvfb:carbon npm run e2e"
+    "e2e:docker": "docker pull thompsnm/nodejs-chrome-xvfb:carbon && docker run --rm -v ${PWD}:/tmp/ -w /tmp thompsnm/nodejs-chrome-xvfb:carbon npm run e2e",
+    "e2e:protractor": "webdriver-manager update && protractor ./protractor.conf.js"
   },
   "private": true,
   "dependencies": {
